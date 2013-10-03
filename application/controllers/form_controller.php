@@ -10,7 +10,7 @@ class Form_controller extends CI_Controller {
 	}
 
 	function set_user_data() {
-		$form_data = $this->input->post("form_data");
+		$form_data = $this->input->post();
 		
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
