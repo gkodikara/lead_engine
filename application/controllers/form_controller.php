@@ -11,10 +11,10 @@ class Form_controller extends CI_Controller {
 
 	function set_user_data() {
 		$form_data = $this->input->post();
-		
+
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-		curl_setopt($ch, CURLOPT_URL, "http://gkodikara:adm1n123!@#@http://54.252.155.211:5984/lead_engine");
+		curl_setopt($ch, CURLOPT_URL, "http://lead_engine_admin:99queen05@54.252.155.211:5984/lead_engine");
 		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($form_data));
 		curl_setopt($ch, CURLOPT_POST, 1);
 		$tuData = curl_exec($ch); 

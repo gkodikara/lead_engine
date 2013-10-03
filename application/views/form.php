@@ -355,6 +355,7 @@ function crossDomainPost(oFormId) {
       sInputValue = $(oObj).val();
       oFormData[sInputName] = sInputValue;
     });
+    oFormData.url = document.URL;
     
     // Add the iframe with a unique name
     $(".xss-iframe").remove();
@@ -370,10 +371,10 @@ function crossDomainPost(oFormId) {
     var form = document.createElement("form");
     form.className = "xss-form"
     form.target = uniqueString;
-    form.action = "http://tool.throa.com/throa/index.php/tracking/log_click/";
+    form.action = "http://localhost/~gkodikara/gkodikara.dev/codeigniter/lead_engine/index.php/form_controller/set_user_data/";
     form.method = "POST";
 
-    $.each(oPostData, function(iIndex, oObj){
+    $.each(oFormData, function(iIndex, oObj){
             // repeat for each parameter
             var input = document.createElement("input");
             input.type = "hidden";
@@ -385,10 +386,6 @@ function crossDomainPost(oFormId) {
 
     document.body.appendChild(form);
     form.submit();
-
-    //Clean up
-    jQuery(".xss-iframe").remove();
-    jQuery(".xss-form").remove();
 
 
 }
