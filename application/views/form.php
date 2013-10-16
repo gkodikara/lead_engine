@@ -356,7 +356,9 @@ function crossDomainPost(oFormId) {
       oFormData[sInputName] = sInputValue;
     });
     oFormData.posting_url = document.URL;
-    oFormData.timestamp = new Date().getTime();
+    var oTime = new Date().getTime();
+
+    oFormData.timestamp = oTime/1000;
 
     // Add the iframe with a unique name
     $(".xss-iframe").remove();
