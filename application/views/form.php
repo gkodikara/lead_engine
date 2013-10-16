@@ -358,7 +358,7 @@ function crossDomainPost(oFormId) {
     oFormData.posting_url = document.URL;
     var oTime = new Date().getTime();
 
-    oFormData.timestamp = oTime/1000;
+    oFormData.timestamp = parseInt(oTime/1000);
 
     // Add the iframe with a unique name
     $(".xss-iframe").remove();
