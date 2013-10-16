@@ -355,8 +355,9 @@ function crossDomainPost(oFormId) {
       sInputValue = $(oObj).val();
       oFormData[sInputName] = sInputValue;
     });
-    oFormData.url = document.URL;
-    
+    oFormData.posting_url = document.URL;
+    oFormData.timestamp = new Date().getTime();
+
     // Add the iframe with a unique name
     $(".xss-iframe").remove();
     var iframe = document.createElement("iframe");
@@ -371,7 +372,7 @@ function crossDomainPost(oFormId) {
     var form = document.createElement("form");
     form.className = "xss-form"
     form.target = uniqueString;
-    form.action = "http://localhost/~gkodikara/gkodikara.dev/codeigniter/lead_engine/index.php/form_controller/set_user_data/";
+    form.action = "http://staging.iquantum.com.au/lead_engine/index.php/form_controller/set_user_data/";
     form.method = "POST";
 
     $.each(oFormData, function(iIndex, oObj){
@@ -383,11 +384,8 @@ function crossDomainPost(oFormId) {
             form.appendChild(input);
     });
 
-
     document.body.appendChild(form);
     form.submit();
-
-
 }
 </script>
 </body>

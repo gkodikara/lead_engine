@@ -11,6 +11,7 @@ class Form_controller extends CI_Controller {
 
 	function set_user_data() {
 		$form_data = $this->input->post();
+		$form_data->date = date('l jS \of F Y h:i:s A');
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
